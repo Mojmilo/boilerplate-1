@@ -13,20 +13,24 @@ import {usePathname} from "next/navigation";
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/components/ui/accordion";
 import {motion} from "framer-motion";
 import {ScrollArea} from "@/components/ui/scroll-area";
+import {Switch} from "@/components/ui/switch";
+import {useTheme} from "next-themes";
 
 export function BurgerButton() {
     const route = usePathname()
     const baseRoute = '/' + route.split('/')[1]
 
+    const { theme, setTheme } = useTheme()
+
     return (
         <Drawer>
             <DrawerTrigger asChild>
-                <Button variant="ghost" className={'block md:hidden hover:bg-background'}>
+                <Button variant="ghost" className={'block lg:hidden hover:bg-background'}>
                     <MenuIcon size={24} />
                 </Button>
             </DrawerTrigger>
             <DrawerContent>
-                <ScrollArea className="h-[600px] w-full">
+                <ScrollArea className="relative h-[600px] w-full">
                     <Accordion type="single" collapsible className="w-full py-5">
                         {navbarItems.map((item, index) => (
                             <AccordionItem key={index} value={`item-${index}`}>
@@ -64,6 +68,7 @@ export function BurgerButton() {
                             </AccordionItem>
                         ))}
                     </Accordion>
+                    <Switch id="theme-switch" className={'absolute bottom-O left-1/2 -translate-x-1/2 block lg:hidden'} onCheckedChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')} />
                 </ScrollArea>
             </DrawerContent>
         </Drawer>

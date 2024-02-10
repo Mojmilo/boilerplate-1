@@ -13,6 +13,7 @@ import {ShoppingBasketIcon} from "lucide-react";
 import {ScrollArea} from "@/components/ui/scroll-area";
 import OrderItem from "@/components/navbar/order/order-item";
 import {orderItems} from "@/data/order-items";
+import Link from "next/link";
 
 export function OrderButton() {
     return (
@@ -35,7 +36,7 @@ export function OrderButton() {
                             </SheetDescription>
                         </SheetHeader>
                         <ScrollArea className="h-full w-full pt-5">
-                            <div className="flex flex-col items-center justify-between pt-5 pb-32 md:px-10 space-y-6">
+                            <div className="flex flex-col items-center justify-between pt-5 pb-32 lg:px-10 space-y-6">
                                 {orderItems.map((item, index) => (
                                     <OrderItem key={index} item={item} />
                                 ))}
@@ -45,10 +46,14 @@ export function OrderButton() {
                     <SheetFooter className={'absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-70% from-background/95'}>
                         <div className="flex flex-row justify-between items-center w-full space-x-2">
                             <SheetClose asChild className={'w-full'}>
-                                <Button variant={'secondary'} type="submit">View order</Button>
+                                <Link href={'/shop/cart'}>
+                                    <Button variant={'secondary'} type="submit" className={'w-full'}>View order</Button>
+                                </Link>
                             </SheetClose>
                             <SheetClose asChild className={'w-full'}>
-                                <Button type="submit">Checkout</Button>
+                                <Link href={'/shop/checkout'}>
+                                    <Button type="submit" className={'w-full'}>Checkout</Button>
+                                </Link>
                             </SheetClose>
                         </div>
                     </SheetFooter>
