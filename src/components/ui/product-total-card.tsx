@@ -1,24 +1,15 @@
-'use client';
-
 import * as React from "react"
 
-import { Button } from "@/components/ui/button"
 import {
     Card,
     CardContent,
-    CardDescription,
     CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
-import { Input } from "@/components/maxvzl-ui/input"
-import { Label } from "@/components/ui/label"
-import {Textarea} from "@/components/maxvzl-ui/textarea";
-import {RadioGroup, RadioGroupItem} from "@/components/ui/radio-group";
-import {ArrowRightCircleIcon} from "lucide-react";
 import {orderItems} from "@/data/order-items";
-import OrderItem from "@/components/navbar/order/order-item";
 import {ScrollArea} from "@/components/ui/scroll-area";
+import CheckoutItem from "@/components/checkout-item";
 
 export function ProductTotalCard() {
     return (
@@ -29,9 +20,9 @@ export function ProductTotalCard() {
             </CardHeader>
             <CardContent className={'space-y-8'}>
                 <ScrollArea className="h-[500px] w-full pt-5">
-                    <div className="flex flex-col items-center justify-between py-5 px-5 space-y-6">
+                    <div className="flex flex-col items-center justify-between py-5 space-y-6">
                         {orderItems.map((item, index) => (
-                            <OrderItem key={index} item={item} />
+                            <CheckoutItem key={index} item={item} />
                         ))}
                     </div>
                 </ScrollArea>
