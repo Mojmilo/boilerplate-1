@@ -17,7 +17,7 @@ import {useForm} from "react-hook-form";
 import {z} from "zod";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {Form, FormControl, FormField, FormItem, FormMessage} from "@/components/ui/form";
-import {createPaymentIntent, createPaymentMethod, createSession} from "@/lib/actions";
+import {createPaymentIntent} from "@/lib/actions";
 
 const formSchema = z.object({
     firstName: z.string().min(2, {
@@ -81,32 +81,6 @@ export default function CheckoutForm() {
     });
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
-        /*if (stripe == null) {
-            return;
-        }
-
-        const sessionId = await createSession(10, window.location.origin);
-
-        if (sessionId == null) {
-            return;
-        }
-
-        try {
-            const {error} = await stripe.redirectToCheckout({
-                sessionId: sessionId,
-            })
-
-            if (error) {
-                setErrorMessage(error.message);
-            } else {
-                console.log('Payment succeeded');
-            }
-        } catch (e) {
-            console.error(e);
-        }*/
-
-
-
         if (stripe == null || elements == null) {
             return;
         }
