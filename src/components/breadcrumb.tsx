@@ -2,7 +2,7 @@
 
 import {usePathname} from "next/navigation";
 import Link from "next/link";
-import {Button} from "@/components/ui/button";
+import {Button} from "@/components/maxvzl-ui/button";
 
 export default function Breadcrumb() {
     const route = '/home' + usePathname();
@@ -28,12 +28,12 @@ export default function Breadcrumb() {
                         }
                         {
                             breadcrumb.name === lastBreadcrumb.name ? (
-                                <Button variant="link" size="sm" className="text-sm text-primary-foreground hover:-underline cursor-not-allowed">
+                                <Button variant="link" size="link" className="text-sm text-primary-foreground hover:-underline hover:text-primary-foreground cursor-not-allowed">
                                     {breadcrumb.name}
                                 </Button>
                             ) : (
                                 <Link href={breadcrumb.path} key={index}>
-                                    <Button variant="link" size="sm" className="text-sm text-muted-foreground">
+                                    <Button variant="link" size="link" className="text-sm text-muted-foreground hover:text-primary-foreground">
                                         {breadcrumb.name}
                                     </Button>
                                 </Link>

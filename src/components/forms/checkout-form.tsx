@@ -4,7 +4,7 @@ import {Input} from "@/components/maxvzl-ui/input";
 import {Textarea} from "@/components/maxvzl-ui/textarea";
 import {RadioGroup, RadioGroupItem} from "@/components/ui/radio-group";
 import {Label} from "@/components/ui/label";
-import {Button} from "@/components/ui/button";
+import {Button} from "@/components/maxvzl-ui/button";
 import {ArrowRightCircleIcon} from "lucide-react";
 import * as React from "react";
 import {useState} from "react";
@@ -294,7 +294,7 @@ export default function CheckoutForm() {
                         {errorMessage && <div className={'text-xs text-destructive'}>{errorMessage}</div>}
                     </div>
                 )}
-                <Button type={'submit'} className={'gap-4 px-5 py-7'} disabled={!stripe || !elements}>
+                <Button type={'submit'} className={'gap-4'} disabled={!stripe || !elements}>
                     <ArrowRightCircleIcon size={24} />
                     <span>Place order</span>
                 </Button>

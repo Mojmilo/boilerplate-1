@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/maxvzl-ui/button"
 import {
     HoverCard,
     HoverCardContent,
@@ -20,7 +20,7 @@ export function NavbarButton({item, isScrolling}: {item: NavbarItem, isScrolling
             <HoverCard openDelay={100} closeDelay={100}>
                 <HoverCardTrigger asChild>
                     <Link href={item.route}>
-                        <Button variant="link" className={'relative text-foreground hover:text-primary duration-300 transition-colors font-normal'}>
+                        <Button variant="link" size={'link'} className={'relative text-foreground hover:text-primary duration-300 transition-colors font-normal'}>
                             <span className={`absolute top-1/2 left-1 -translate-x-1/2 -translate-y-1/2 bg-primary rounded-full ${baseRoute == item.route ? 'opacity-100 w-2 h-2' : 'opacity-0 w-0 h-0'} duration-300 transition-all`}/>
                             {item.name}
                         </Button>
@@ -30,7 +30,7 @@ export function NavbarButton({item, isScrolling}: {item: NavbarItem, isScrolling
                     <div className={`grid ${item.subitems.length > 4 && 'grid-rows-4 grid-flow-col-dense'} gap-4`}>
                         {item.subitems.map((subitem, index) => (
                             <Link key={index} href={item.route + subitem.route}>
-                                <Button key={index} variant="link" className={'relative text-foreground hover:text-primary duration-300 transition-colors font-normal'}>
+                                <Button key={index} variant="link" size={'link'} className={'relative text-foreground hover:text-primary duration-300 transition-colors font-normal'}>
                                     <span className={'absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 w-2 h-2'}>
                                         {route == item.route + subitem.route && (
                                             <motion.span layoutId={'test'} className={`absolute bg-primary rounded-full w-full h-full`}/>

@@ -4,7 +4,7 @@ import {NavbarButton} from "@/components/navbar/navbar-button";
 import {navbarItems} from "@/data/navbar-items";
 import {FacebookIcon, InstagramIcon, PlaneIcon, ShoppingBasketIcon, TwitterIcon, YoutubeIcon} from "lucide-react";
 import {useEffect, useRef, useState} from "react";
-import {Button} from "@/components/ui/button";
+import {Button} from "@/components/maxvzl-ui/button";
 import {OrderButton} from "@/components/navbar/order/order-button";
 import {BurgerButton} from "@/components/navbar/burger-button";
 import {useTheme} from "next-themes";
@@ -21,22 +21,22 @@ export default function Footer() {
                 </span>
                 <div className="flex flex-row justify-between items-center">
                     <Link href={'#'}>
-                        <Button variant={'link'}>
+                        <Button variant={'link'} size={'link'}>
                             <TwitterIcon size={20} />
                         </Button>
                     </Link>
                     <Link href={'#'}>
-                        <Button variant={'link'}>
+                        <Button variant={'link'} size={'link'}>
                             <InstagramIcon size={20} />
                         </Button>
                     </Link>
                     <Link href={'#'}>
-                        <Button variant={'link'}>
+                        <Button variant={'link'} size={'link'}>
                             <FacebookIcon size={20} />
                         </Button>
                     </Link>
                     <Link href={'#'}>
-                        <Button variant={'link'}>
+                        <Button variant={'link'} size={'link'}>
                             <YoutubeIcon size={20} />
                         </Button>
                     </Link>
